@@ -2,7 +2,7 @@ import React from 'react';
 import "./Table.css";
 import { BsFillTrashFill, BsFillPencilFill} from "react-icons/bs"
 
-export const Table = () => {
+export const Table = ( { rows }) => {
   return <div className='table-wrapper'>
      <table className='table'>
         <thead>
@@ -14,6 +14,14 @@ export const Table = () => {
             </tr>
         </thead>
         <tbody>
+            {
+                rows.map((row, idx) =>{
+                    return <tr key={idx}>
+                        <td> {row.page}</td>
+                        <td className='expand'> row.description</td>
+                        </tr>
+                })
+            }
             <tr>
                 <td>Home</td>
                 <td>This is the main Page</td>
